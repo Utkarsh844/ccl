@@ -46,7 +46,7 @@ def guestbook_key(guestbook_name=DEFAULT_GUESTBOOK_NAME):
 
 
 # [START greeting]
-class Product(ndb.Model):
+class Customer(ndb.Model):
     """Sub model for representing an author."""
     customer = ndb.StringProperty(indexed=False)
     email = ndb.StringProperty(indexed=False)
