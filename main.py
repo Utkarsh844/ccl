@@ -11,7 +11,7 @@ class product(db.Model):
 	                 required=True)
 when = db.DateTimeProperty(
 	              auto_now_add=True)
-    phone = db.IntegerProperty(
+phone = db.IntegerProperty(
 	                required=True)
 
 class MyHandler(webapp.RequestHandler):
@@ -19,29 +19,29 @@ class MyHandler(webapp.RequestHandler):
      products = db.GQlQuery(
 	   'SELECT * FROM Product '
 	   'ORDER BY when DESC')
-	 values = {
+values = {
 	     'products': products
 	   }
-    self.response.out.write(
+self.response.out.write(
 	 template.render('main.html', 
 	                 values))
-   def post(self):
+def post(self):
      product = Product(
 	   firstname=self.request.get(
 	   'firstname'),
 	   phone=self.request.get(
 	   'phone'))
 	   
-	 product.put()
-     self.redirect('/')
+product.put()
+self.redirect('/')
 
    
    
    
-   def main():
-app = webapp.WSGIApplication([
+def main():
+    app = webapp.WSGIApplication([
   (r'.*',MyHandler)], debug=True)
-   wsgiref.handlers.CGIHandler().run(app)
+wsgiref.handlers.CGIHandler().run(app)
 
 if __name__ == "__main__":
     main()   
