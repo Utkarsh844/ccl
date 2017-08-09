@@ -7,11 +7,11 @@ from google.appengine.ext.webapp \
    
    
 class product(db.Model):
-     firstname = db.StringProperty(
+    firstname = db.StringProperty(
 	                 required=True)
-	 when = db.DateTimeProperty(
+when = db.DateTimeProperty(
 	              auto_now_add=True)
-     phone = db.IntegerProperty(
+    phone = db.IntegerProperty(
 	                required=True)
 
 class MyHandler(webapp.RequestHandler):
@@ -19,7 +19,7 @@ class MyHandler(webapp.RequestHandler):
      products = db.GQlQuery(
 	   'SELECT * FROM Product '
 	   'ORDER BY when DESC')
-	   values = {
+	 values = {
 	     'products': products
 	   }
     self.response.out.write(
@@ -32,7 +32,7 @@ class MyHandler(webapp.RequestHandler):
 	   phone=self.request.get(
 	   'phone'))
 	   
-	   product.put()
+	 product.put()
      self.redirect('/')
 
    
