@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>INFORMATION</title>
+</head>
+  <body>
+  {% for product in products %}
+ <div> {{product.firstname}} 
+        from
+		{% ifequal product.phone None%}
+		  Anonymous
+		  {% else %}
+		{{product.phone}}
+        {% endifequal %} 
+ </div>
+  {% endfor %}
+  
+    <form action = "main.py" method = "post" accept-charset="utf-8">
+	     
+        FirstName:
+        <input type = "text" name = "firstname" id="firstname" /><br>
+        Phone number:
+        <input type = "number" maxlength="10" name = "phone" id="phone" /><br>
+
+        <input type = "submit"  value ="Save">
+        </form>
+   </body>
+</html>
