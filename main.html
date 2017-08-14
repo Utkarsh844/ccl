@@ -1,26 +1,20 @@
 <html>
 <head>
-<title>INFORMATION</title>
+<title>PRODUCT INFORMATION</title>
 </head>
   <body>
   {% for product in products %}
- <div> {{product.firstname}} 
-        from
-		{% ifequal product.phone None%}
-		  Anonymous
-		  {% else %}
-		{{product.phone}}
-        {% endifequal %} 
+ <div> {{product.productm}} 
+       {{product.description}}
  </div>
   {% endfor %}
   
     <form action = "main.py" method = "post" accept-charset="utf-8">
 	     
-        FirstName:
-        <input type = "text" name = "firstname" id="firstname" /><br>
-        Phone number:
-        <input type = "number" maxlength="10" name = "phone" id="phone" /><br>
-
+        Product:
+        <input type = "text" name = "productm" id="productm" /><br>
+        Description:
+       <textarea rows="4" cols="50" id="description" name="description"></textarea>
         <input type = "submit"  value ="Save">
         </form>
    </body>
