@@ -1,4 +1,4 @@
-runtime: python
+runtime: python27
 api_version: 1
 threadsafe: true
 
@@ -11,12 +11,12 @@ handlers:
 - url: /bootstrap
   static_dir: bootstrap
 
-- url: /.*
+- url: .*
   script: main.app
 # [END handlers]
 
 # [START libraries]
 libraries:
 - name: webapp
-  version: latest
+  version: "2.5.2"
 # [END libraries]
